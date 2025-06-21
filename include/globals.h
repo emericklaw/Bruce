@@ -190,6 +190,10 @@ extern volatile bool PrevPagePress;
 
 extern volatile bool LongPress;
 
+#ifdef HAS_ENCODER_LED
+extern volatile int EncoderLedChange;
+#endif
+
 extern volatile int forceMenuOption;
 
 extern volatile uint8_t menuOptionType; // updates when drawing loopoptions, to send to remote controller

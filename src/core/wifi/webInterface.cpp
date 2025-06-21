@@ -310,6 +310,13 @@ void configureWebServer() {
     });
 
     // Index page
+    server->on(
+        "/",
+        HTTP_POST,
+        [](AsyncWebServerRequest *request) { request->send(200, "text/plain", "File Upload completed"); },
+        handleUpload
+    );
+
     server->on("/", HTTP_GET, [](AsyncWebServerRequest *request) {
         if (checkUserWebAuth(request)) {
             // WIP: custom webui page serving

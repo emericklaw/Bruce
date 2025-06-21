@@ -35,6 +35,9 @@ volatile bool AnyKeyPress = false;
 volatile bool NextPagePress = false;
 volatile bool PrevPagePress = false;
 volatile bool LongPress = false;
+#ifdef HAS_ENCODER_LED
+volatile int EncoderLedChange = 0;
+#endif
 volatile int forceMenuOption = -1;
 volatile uint8_t menuOptionType = 0;
 String menuOptionLabel = "";
@@ -143,9 +146,9 @@ volatile int tftHeight = VECTOR_DISPLAY_DEFAULT_WIDTH;
  *********************************************************************/
 void begin_storage() {
     if (!LittleFS.begin(true)) { LittleFS.format(), LittleFS.begin(); }
-    setupSdCard();
-    bruceConfig.fromFile();
-    bruceConfigPins.fromFile();
+    bool checkFS = setupSdCard();
+    bruceConfig.fromFile(checkFS);
+    bruceConfigPins.fromFile(checkFS);
 }
 
 /*********************************************************************
