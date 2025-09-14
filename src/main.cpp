@@ -423,7 +423,7 @@ void setup() {
         &xHandle          // Task handle (not used)
     );
     // #endif
-    bruceConfig.openThemeFile(bruceConfig.themeFS(), bruceConfig.themePath);
+    bruceConfig.openThemeFile(bruceConfig.themeFS(), bruceConfig.themePath, false);
     if (!bruceConfig.instantBoot) {
         boot_screen_anim();
         startup_sound();
