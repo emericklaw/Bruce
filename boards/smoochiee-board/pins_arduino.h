@@ -107,7 +107,6 @@ static const uint8_t SCK = 18;
 // USE BOOST ENABLE PMIC 5V OUTPUT
 #define USE_BOOST
 
-
 // Mic#
 #define PIN_CLK 1
 #define PIN_DATA 10
